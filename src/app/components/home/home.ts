@@ -8,6 +8,11 @@ import { Component } from '@angular/core';
 })
 export class Home {
   name: string = 'Zaid';
+  tasks: any[] = [
+    { id: 0, title: 'Apprendre Angular', date: '2024-06-01', completed: true },
+    { id: 1, title: 'Apprendre React', date: '2024-06-02', completed: false },
+    { id: 2, title: 'Apprendre Vue', date: '2024-06-03', completed: false },
+  ];
 
   disabled: boolean = false;
 
