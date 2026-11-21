@@ -94,6 +94,13 @@
       >
         🗑 Supprimer le nom
       </button>
+      <button
+        class="w-full py-4 rounded-xl bg-rose-50 text-rose-600 font-bold text-sm transition-all duration-300 hover:bg-rose-100 hover:-translate-y-1"
+        (click)="countTasks()"
+        [disabled]="disabled"
+      >
+        Nbr de tâches : {{ nbrTasks() }}
+      </button>
     </div>
   </div>
 </div>
