@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,17 +9,18 @@ import { CommonModule } from '@angular/common';
 })
 export class Home {
   name: string = 'Zaid';
-  tasks: any[] = [
+
+  tasks = signal<Task[]>([
     { id: 0, title: 'Apprendre Angular', dueDate: '2024-06-01', completed: true },
     { id: 1, title: 'Apprendre React', dueDate: '2024-06-02', completed: false },
     { id: 2, title: 'Apprendre Vue', dueDate: '2024-06-03', completed: false },
-  ];
+  ]);
 
   // Signal to count the number of tasks
-  nbrTasks = signal(0);
+  nbrTasks = computed(() => this.tasks().length);
 
-  countTasks(): void {
-    this.nbrTasks.set(this.tasks.length);
+  filtrerTasks() {
+    return this.tasks.set(this.tasks().filter((task) => task.completed === true));
   }
 
   disabled: boolean = false;
